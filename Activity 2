@@ -1,0 +1,30 @@
+# Parent class for vehicles
+class Vehicle:
+    def move(self):
+        pass  # This method will be overridden by child classes
+
+
+# Child class representing a Car
+class Car(Vehicle):
+    def move(self):
+        return "Driving 🚗"
+
+
+# Child class representing a Plane
+class Plane(Vehicle):
+    def move(self):
+        return "Flying ✈️"
+
+
+# Child class representing a Bicycle
+class Bicycle(Vehicle):
+    def move(self):
+        return "Pedaling 🚴"
+
+
+# Polymorphism in action
+vehicles = [Car(), Plane(), Bicycle()]
+
+# Loop through each vehicle and call their move method
+for vehicle in vehicles:
+    print(vehicle.move())
