@@ -1,0 +1,37 @@
+# Parent class for general electronic devices
+class ElectronicDevice:
+    def __init__(self, brand, price):
+        self.brand = brand  # Brand of the device
+        self.price = price  # Price of the device
+
+    def display_info(self):
+        return f"Brand: {self.brand}, Price: ${self.price}"
+
+
+# Child class representing a Smartphone
+class Smartphone(ElectronicDevice):
+    def __init__(self, brand, price, model, storage, camera_quality):
+        super().__init__(brand, price)  # Initialize parent class attributes
+        self.model = model  # Model of the smartphone
+        self.storage = storage  # Storage capacity
+        self.camera_quality = camera_quality  # Camera quality
+
+    def take_photo(self):
+        return f"{self.model} takes a photo with {self.camera_quality} camera quality."
+
+    def upgrade_storage(self, new_storage):
+        self.storage = new_storage
+        return f"{self.model}'s storage upgraded to {self.storage} GB."
+
+    def display_info(self):
+        # Override display_info() to provide specific information for smartphones
+        return f"{self.brand} {self.model}, Price: ${self.price}, Storage: {self.storage} GB, Camera: {self.camera_quality}"
+
+
+# Creating an object of the Smartphone class
+phone = Smartphone("Samsung", 999, "Galaxy S21", 128, "108 MP")
+
+# Using methods
+print(phone.display_info())  # Display details of the phone
+print(phone.take_photo())  # Take a photo
+print(phone.upgrade_storage(256))  # Upgrade storage
